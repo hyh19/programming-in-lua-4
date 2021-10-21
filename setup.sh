@@ -8,4 +8,4 @@ tar zxf lua-5.3.3.tar.gz
 
 cd lua-5.3.3
 
-sudo make all install
+sudo make linux install
