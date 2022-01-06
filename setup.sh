@@ -9,3 +9,7 @@ tar zxf lua-5.3.3.tar.gz
 cd lua-5.3.3
 
 sudo make linux install
+
+cd ..
+
+rm -rf lua-5.3.3*
