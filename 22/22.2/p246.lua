@@ -1,4 +1,5 @@
 local declaredNames = {}
+
 setmetatable(
     _G,
     {
