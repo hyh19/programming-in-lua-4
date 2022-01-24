@@ -6,8 +6,4 @@ function getfield(f)
     return v
 end
 
-print(getfield("io.read"))
-
---[[
-function: 0x557e2b96d1f0
-]]
+print(getfield("io.read")) --> function: 0x557e2b96d1f0
