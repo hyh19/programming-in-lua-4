@@ -21,3 +21,6 @@ setmetatable(
         end
     }
 )
+
+x = nil
+print(x) --> nil
