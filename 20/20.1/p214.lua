@@ -84,3 +84,14 @@ print(s1 < s2) --> true
 print(s1 >= s1) --> true
 print(s1 > s1) --> false
 print(s1 == s2 * s1) --> true
+
+-- P219
+mt.__tostring = Set.tostring
+s1 = Set.new {10, 4, 5}
+print(s1) --> {4, 5, 10}
+
+-- P219
+mt.__metatable = "not your business"
+s1 = Set.new {}
+print(getmetatable(s1)) --> not your business
+setmetatable(s1, {}) --> cannot change a protected metatable
