@@ -1,15 +1,18 @@
 function track(t)
     local proxy = {} -- 't'的代理表
+
     -- 为代理创建元表
     local mt = {
         __index = function(_, k)
             print("*access to element " .. tostring(k))
             return t[k] -- 访问原来的表
         end,
+
         __newindex = function(_, k, v)
             print("*update of element " .. tostring(k) .. " to " .. tostring(v))
             t[k] = v -- 更新原来的表
         end,
+
         __pairs = function()
             return function(_, k) -- 迭代函数
                 local nextkey, nextvalue = next(t, k)
@@ -19,6 +22,7 @@ function track(t)
                 return nextkey, nextvalue
             end
         end,
+
         __len = function()
             return #t
         end
@@ -37,3 +41,14 @@ t[2] = "hello" --> *update of element 2 to hello
 print(t[2])
 --> *access to element 2
 --> hello
+
+t = track({10, 20})
+print(#t) --> 2
+
+for k, v in pairs(t) do
+    print(k, v)
+end
+--> *traversing element 1
+--> 1       10
+--> *traversing element 2
+--> 2       20
