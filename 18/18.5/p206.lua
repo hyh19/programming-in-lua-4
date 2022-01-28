@@ -1,6 +1,3 @@
-file = io.open("test.txt", "r")
-io.input(file)
-
 function allwords(f)
     for line in io.lines() do
         for word in string.gmatch(line, "%w+") do
@@ -8,6 +5,9 @@ function allwords(f)
         end
     end
 end
+
+file = io.open("test.txt", "r")
+io.input(file)
 
 allwords(print)
 
