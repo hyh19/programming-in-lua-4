@@ -4,20 +4,30 @@ lines = {
     ["luaH_present"] = 48
 }
 
-a = {}
+function pairsBykeys(t, f)
+    local a = {}
 
-for n in pairs(lines) do
-    a[#a + 1] = n
+    for n in pairs(t) do -- 创建一个包含所有键的表
+        a[#a + 1] = n
+    end
+
+    table.sort(a, f) -- 对列表排序
+
+    local i = 0 -- 迭代变量
+
+    -- 迭代函数
+    return function()
+        i = i + 1
+        return a[i], t[a[i]] -- 返回键和值
+    end
 end
 
-table.sort(a)
-
-for _, n in ipairs(a) do
-    print(n)
+for name, line in pairsBykeys(lines) do
+    print(name, line)
 end
 
 --[[
-luaH_get
-luaH_present
-luaH_set
+luaH_get        24
+luaH_present    48
+luaH_set        10
 ]]
