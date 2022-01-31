@@ -6,5 +6,12 @@ co =
     end
 )
 
-coroutine.resume(co, "hi") --> co1     hi
-coroutine.resume(co, 4, 5) --> co2     4       5
+print(coroutine.resume(co, "hi"))
+print(coroutine.resume(co, 4, 5))
+
+--[[
+co1     hi
+true
+co2     4       5
+true
+]]

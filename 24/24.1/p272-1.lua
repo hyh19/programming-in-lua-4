@@ -4,6 +4,7 @@ co =
         print("hi")
     end
 )
+
 print(type(co)) --> thread
 print(coroutine.status(co)) --> suspended
 coroutine.resume(co) --> hi
